@@ -1,0 +1,39 @@
+<h1>プロフィール編集</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+    
+      
+      <% if @user.errors[:name].any? %>
+        <div id="error_explanation">
+          <h2><%= @user.errors.count %>件のエラーが発生したため保存ができませんでした。</h2>
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      
+      <%= f.label :area %>
+      <%= f.text_field :area %>
+      
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Edeit my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
