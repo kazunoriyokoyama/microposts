@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
                        
      validates :area, presence: true               
      has_secure_password
+     has_many :microposts
 end
