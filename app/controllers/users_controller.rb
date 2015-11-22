@@ -58,6 +58,7 @@ class UsersController < ApplicationController
     
   def correct_user
     @user = User.find(params[:id])
+    flash[:danger] = "自身でなければ編集出来ません"
     redirect_to(root_url) unless @user == current_user
   end
   
