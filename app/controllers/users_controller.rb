@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update]
-  before_action :logged_in_user, only: [:edit, :update, :followings, :followers]
+  before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user,   only: [:edit, :update]
   
   
@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   def followings
     @user  = User.find(params[:id])
     @followings=@user.following_users
+    @following_users = User.page(params[:page])
     render 'followings'
   end
 
@@ -47,12 +48,9 @@ class UsersController < ApplicationController
   def followers
    @user  = User.find(params[:id])
    @followers = @user.follower_users
+   @follower_users = User.page(params[:page])
    render 'followers'
   end
-  
-  
-  
-  
   
   
   private
@@ -75,7 +73,7 @@ class UsersController < ApplicationController
     
   def correct_user
     @user = User.find(params[:id])
-    flash[:danger] = "自身でなければ編集出来ません"
+    
     redirect_to(root_url) unless @user == current_user
   end
   
