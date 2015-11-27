@@ -15,7 +15,7 @@
 　　　</div>
       <ol class="following">
         
-        <%= page_entries_info @following_users %>
+        
        
         　<% @user.following_users.each do |user| %>
             <li>
@@ -23,7 +23,7 @@
             　<%=link_to user.name, user %>
             </li>
           <% end %>
-          <%= paginate @following_users %>
+          
       </ol>
       
     <% end %>
