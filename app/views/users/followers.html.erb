@@ -15,15 +15,13 @@
 　　　</div>
       <ol class="follower">
         
-        　<%= page_entries_info @follower_users %>
-       
+        　
         　<% @user.follower_users.each do |user| %>
             <li>
               <%= link_to gravatar_for(user, size: 50), user %>
              <%= link_to user.name, user %>
             </li>
           <% end %>
-          <%= paginate @follower_users %>
           
        
       </ol>

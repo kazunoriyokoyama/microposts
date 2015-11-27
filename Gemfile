@@ -34,6 +34,9 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 gem 'kaminari'
 
+gem 'carrierwave'
+gem 'cloudinary'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

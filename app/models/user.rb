@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
                                        dependent:   :destroy
      has_many :follower_users, through: :follower_relationships, source: :follower
      
+     mount_uploader :avatar, AvatarUploader
      
        # 他のユーザーをフォローする
      def follow(other_user)
