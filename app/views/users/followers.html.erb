@@ -16,9 +16,9 @@
       <ol class="follower">
         
           <% @user.follower_users.each do |user|%>
-            <li>
+            <li class="cf">
               <%= link_to gravatar_for(user, size: 50), user %>
-             <%= link_to user.name, user %>
+              <%= link_to user.name, user %>
             </li>
           <% end %>
           
