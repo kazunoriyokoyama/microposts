@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
       @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc) 
       render 'static_pages/home'
     end
-  end
+   end
   
   def destroy
     @micropost = current_user.microposts.find_by(id: params[:id])

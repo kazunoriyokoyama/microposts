@@ -29,10 +29,7 @@ gem 'bootstrap-sass'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'will_paginate',           '3.0.7'
-gem 'bootstrap-will_paginate', '0.0.10'
 
-gem 'kaminari'
 
 gem 'carrierwave'
 gem 'cloudinary'

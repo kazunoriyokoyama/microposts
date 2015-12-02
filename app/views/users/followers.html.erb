@@ -11,19 +11,17 @@
     <% if @user.follower_users.any? %>
       <h3>Followers (<%= @user.follower_users.count %>)</h3>
       <div class="progress">
-  　　<div class="progress-bar progress-bar-info" style="width: 100%"></div>
-　　　</div>
+      <div class="progress-bar progress-bar-info"style="width:100%"></div>
+      </div
       <ol class="follower">
         
-        　
-        　<% @user.follower_users.each do |user| %>
+          <% @user.follower_users.each do |user|%>
             <li>
               <%= link_to gravatar_for(user, size: 50), user %>
              <%= link_to user.name, user %>
             </li>
           <% end %>
           
-       
       </ol>
     <% end %>
   </div>
