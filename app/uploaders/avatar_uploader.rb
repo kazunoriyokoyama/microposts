@@ -1,9 +1,20 @@
 # encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
-  include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
-  process resize_to_fill: [150, 150]
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  process :resize_to_limit => [300, 300]
+
+  version :thumb do
+    process :resize_to_limit => [150, 150]
+  end
+
+  
+  
   
 
   # Include RMagick or MiniMagick support:
@@ -22,9 +33,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  
   
   def public_id
     model.id
